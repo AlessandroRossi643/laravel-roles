@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Shoe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ShoeController extends Controller
 {
+    public function _construct()
+    {
+      $this->middleware('permission:view_product');
+      $this->middleware('permission:edit_product')->except(['index','show']);
+    }
 
     public function index()
     {
