@@ -1,0 +1,6 @@
+.card{
+  max-height: 400px;
+  .card-body{
+    overflow-y: scroll;
+  }
+}
