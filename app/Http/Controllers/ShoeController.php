@@ -23,6 +23,12 @@ class ShoeController extends Controller
 
     public function store(Request $request)
     {
+      $validatedData=$request->validate([
+        'name'=>'required|max:100|bail',
+        'description'=>'required',
+        'price'=>'required|between:0,9999.99|numeric'
+      ]);
+
       $shoe=$request->all();
       $new_shoe=new Shoe();
       $new_shoe->fill($shoe);
@@ -33,7 +39,12 @@ class ShoeController extends Controller
 
     public function show(Shoe $shoe)
     {
-        //
+      if (empty($shoe)) {
+        abort(404);
+      }
+      else{
+        return view('shoes.show',compact('shoe'));
+      }
     }
 
 
@@ -51,6 +62,7 @@ class ShoeController extends Controller
 
     public function destroy(Shoe $shoe)
     {
-        //
+      $shoe->delete();
+      return redirect()->route('shoes.index');
     }
 }
