@@ -1,6 +1,20 @@
+.container_card{
+  padding: 20px 0;
+}
 .card{
   max-height: 400px;
+
   .card-body{
     overflow-y: scroll;
   }
+  .card-action form{
+    display: inline-block;
+  }
+}
+
+.logo{
+  height: 100px;
+}
+.nav-item a{
+  font-size: 20px;
 }

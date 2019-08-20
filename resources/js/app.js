@@ -6,6 +6,34 @@
 
 require('./bootstrap');
 
+$('.next').click(function(){
+  var schedaCorrente=$('.visible');
+  $('.row .img_item').removeClass('visible');
+
+  var prossimaScheda=schedaCorrente.next('.img_item');
+  if (prossimaScheda.length!=0) {
+    schedaCorrente.removeClass('visible');
+    prossimaScheda.addClass('visible');
+  }
+  else{
+    $('.row .img_item').first().addClass('visible');
+  }
+});
+
+$('.prev').click(function(){
+  var schedaCorrente=$('.visible');
+  $('.row .img_item').removeClass('visible');
+
+  var prossimaScheda=schedaCorrente.prev('.img_item');
+  if (prossimaScheda.length!=0) {
+    schedaCorrente.removeClass('visible');
+    prossimaScheda.addClass('visible');
+  }
+  else{
+    $('.row .img_item').last().addClass('visible');
+  }
+});
+
 window.Vue = require('vue');
 
 /**

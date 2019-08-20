@@ -1,11 +1,27 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.container_card {
+  padding: 20px 0;
+}
+
 .card {
   max-height: 400px;
 }
 
 .card .card-body {
   overflow-y: scroll;
+}
+
+.card .card-action form {
+  display: inline-block;
+}
+
+.logo {
+  height: 100px;
+}
+
+.nav-item a {
+  font-size: 20px;
 }
 
 /*!

@@ -54,15 +54,31 @@ class ShoeController extends Controller
     }
 
 
-    public function edit(Shoe $shoe)
+    public function edit($shoe_id)
     {
-        //
+      $shoe=Shoe::find($shoe_id);
+      if (empty($shoe)) {
+        abort(404);
+      }
+      $result=[
+        'shoe'=> $shoe
+      ];
+      return view('shoes.edit',$result);
     }
 
 
-    public function update(Request $request, Shoe $shoe)
+    public function update(Request $request, $shoe_id)
     {
-        //
+      $validatedData=$request->validate([
+        'name'=>'required|max:100|bail',
+        'description'=>'required',
+        'price'=>'required|between:0,9999.99|numeric'
+      ]);
+
+      $result = $request->all();
+      $shoe = Shoe::find($shoe_id);
+      $shoe->update($result);
+      return redirect()->route('shoes.index');
     }
 
 

@@ -49197,6 +49197,30 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+$('.next').click(function () {
+  var schedaCorrente = $('.visible');
+  $('.row .img_item').removeClass('visible');
+  var prossimaScheda = schedaCorrente.next('.img_item');
+
+  if (prossimaScheda.length != 0) {
+    schedaCorrente.removeClass('visible');
+    prossimaScheda.addClass('visible');
+  } else {
+    $('.row .img_item').first().addClass('visible');
+  }
+});
+$('.prev').click(function () {
+  var schedaCorrente = $('.visible');
+  $('.row .img_item').removeClass('visible');
+  var prossimaScheda = schedaCorrente.prev('.img_item');
+
+  if (prossimaScheda.length != 0) {
+    schedaCorrente.removeClass('visible');
+    prossimaScheda.addClass('visible');
+  } else {
+    $('.row .img_item').last().addClass('visible');
+  }
+});
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your

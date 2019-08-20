@@ -9,10 +9,10 @@
   @endif
   <div class="container_card d-flex">
     @forelse($shoes as $shoe)
-    <div class="card h-50 mr-2" style="width: 18rem;">
+    <div class="card h-50 mr-3" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title">{{$shoe->name}}</h5>
-        <h4 class="card-title">{{$shoe->description}}</h4>
+        <h3 class="card-title">{{$shoe->name}}</h3>
+        <h5 class="card-title">{{$shoe->description}}</h5>
         <h4 class="card-title">Price: {{$shoe->price}}£</h4>
       </div>
       <div class="card-action p-3">
